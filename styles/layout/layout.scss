@@ -27,7 +27,26 @@ body {
   min-width: 320px;
   width: 100%;
   height: 100%;
-  background: top center no-repeat url(../src/image.png), vars.$darkgray;
+  //background: top center no-repeat url(../src/banner.png), vars.$darkgray;
+
+  //.no-webp &{
+  //  background: top center no-repeat url(../src/banner.png), vars.$darkgray;
+  //}
+  //background: top center no-repeat url(../src/banner.webp), vars.$darkgray;
+
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-color: vars.$darkgray;
+
+  background-image: url('../src/banner.png');
+
+  background-image: -webkit-image-set(
+                  url('../src/banner.webp') 1x);
+
+  background-image: image-set(
+                  url('../src/banner.webp') type("image/webp"),
+                  url('../src/banner.png') type("image/png"));
+
   //background-size: cover;
   background-size: 1919px 987px;
 
@@ -97,7 +116,33 @@ body {
       height: 100%;
       width: 100%;
       opacity: 0.1;
-      background:  center center repeat-y url('../src/image2.png');
+      //background:  center center repeat-y url('../src/content.png');
+      //.no-webp &{
+      //  background: center center repeat-y url(../src/content.png);
+      //}
+      background-position: center center;
+      background-repeat: repeat-y;
+
+      background-image: url('../src/content.png');
+
+      background-image: -webkit-image-set(
+                      url('../src/content.webp') 1x);
+
+      background-image: image-set(
+                      url('../src/content.webp') type("image/webp"),
+                      url('../src/content.png') type("image/png"));
+
+      //background-image: -webkit-image-set(
+      //                url('../src/content.webp') type("image/webp"),
+      //                url('../src/content.png') type("image/png"));
+
+
+
+      //background-image: image-set(
+      //                "../src/content.webp" type("image/webp"),
+      //                "../src/content.png" type("image/png"));
+
+      //background: center center repeat-y url(../src/content.webp);
     }
 
     &__title {
