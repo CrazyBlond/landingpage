@@ -842,6 +842,7 @@ body {
 .banner__list {
   margin-top: 10px;
   list-style: none;
+  padding-left: 0;
 }
 .banner__list li {
   padding-bottom: 5px;
