@@ -116,10 +116,7 @@ body {
       height: 100%;
       width: 100%;
       opacity: 0.1;
-      //background:  center center repeat-y url('../src/content.png');
-      //.no-webp &{
-      //  background: center center repeat-y url(../src/content.png);
-      //}
+
       background-position: center center;
       background-repeat: repeat-y;
 
@@ -136,13 +133,10 @@ body {
       //                url('../src/content.webp') type("image/webp"),
       //                url('../src/content.png') type("image/png"));
 
-
-
       //background-image: image-set(
       //                "../src/content.webp" type("image/webp"),
       //                "../src/content.png" type("image/png"));
 
-      //background: center center repeat-y url(../src/content.webp);
     }
 
     &__title {
@@ -184,8 +178,6 @@ body {
       }
 
       @include mixins.media-down(md) {
-        //grid-template-columns: repeat(5, 210px);
-        //overflow-x: auto;
         width: 1170px;
         padding-bottom: 15px;
       }

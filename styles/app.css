@@ -220,9 +220,6 @@ button.reset:hover, button.reset:active, button.reset:focus {
   transition: all 0.5s ease-out;
   cursor: pointer;
 }
-.custom-select .custom-select__options label + input + .custom-select .custom-select__options label {
-  border-top: 0 solid rgba(199, 204, 209, 0.3764705882);
-}
 .custom-select .custom-select__options label:hover {
   color: #D8093A !important;
 }

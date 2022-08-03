@@ -78,29 +78,6 @@
   }
 }
 
-//@mixin circle($width, $color) {
-//  width: $width;
-//  height: $width;
-//  background: $color;
-//  border-radius: 50%;
-//}
-//
-//.circle {
-//  @include circle(200px, #123);
-//}
-
-//@mixin dotted-line ($dot-size, $dot-space, $dot-color) {
-//  background: radial-gradient($dot-color $dot-size, transparent 0%) center, transparent;
-//  background-size: $dot-space $dot-space;
-//  background-repeat: repeat-x;
-//  background-position: 0px 0px;
-//}
-//
-//.dotted-line {
-//  @include dotted-line(6px, 20px, #C4C4C4);
-//}
-
-
 @mixin reset-scrollbar {
   scrollbar-width: unset;
 

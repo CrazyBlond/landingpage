@@ -2,12 +2,7 @@
 @use "../vars";
 
 .banner {
-  //height: 750px;
   height: auto;
-
-  //@include media-down(sm) {
-  //  height: auto;
-  //}
 
   &__container {
     margin-top: 103px;
@@ -99,7 +94,6 @@
   }
 
   &__banner-button {
-    //font-family: Lato;
     font-size: 13px;
     line-height: 15px;
     letter-spacing: 0;

@@ -146,10 +146,6 @@
 
       cursor: pointer;
 
-      & + input + & {
-        border-top: 0 solid #C7CCD160;
-      }
-
       &:hover {
         color: vars.$select_hover !important;
       }
