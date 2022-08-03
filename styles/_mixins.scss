@@ -1,0 +1,181 @@
+@use "vars" as *;
+
+@mixin media-up($breakpoint) {
+  @if map-has-key($grid-breakpoints, $breakpoint) {
+    $width: map-get($grid-breakpoints, $breakpoint);
+
+    @media (min-width: $width) {
+      @content;
+    }
+  }
+}
+
+@mixin media-down($breakpoint) {
+  @if map-has-key($grid-breakpoints, $breakpoint) {
+    $width: map-get($grid-breakpoints, $breakpoint);
+
+    @media (max-width: $width) {
+      @content;
+    }
+  }
+}
+
+@mixin media-between($breakpoint-min, $breakpoint-max) {
+  @if map-has-key($grid-breakpoints, $breakpoint-min) and map-has-key($grid-breakpoints, $breakpoint-max) {
+    $width-min: map-get($grid-breakpoints, $breakpoint-min);
+    $width-max: map-get($grid-breakpoints, $breakpoint-max);
+
+    @media (min-width: $width-min) and (max-width: $width-max) {
+      @content;
+    }
+  }
+}
+
+@mixin reset-button() {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: 0 0;
+  text-align: inherit;
+  line-height: normal;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  -webkit-appearance: none;
+  border-radius: 0;
+
+  //Safari user agent override
+  color: $black;
+  &:hover, &:active, &:focus {
+    color: $black;
+  }
+}
+
+@mixin reset-range {
+  input[type=range] {
+    -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+    width: 100%; /* Specific width is required for Firefox. */
+    background: transparent; /* Otherwise white in Chrome */
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+    }
+
+    &:focus {
+      outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+    }
+
+    &::-ms-track {
+      width: 100%;
+      cursor: pointer;
+
+      /* Hides the slider so custom styles can be added */
+      background: transparent;
+      border-color: transparent;
+      color: transparent;
+    }
+  }
+}
+
+//@mixin circle($width, $color) {
+//  width: $width;
+//  height: $width;
+//  background: $color;
+//  border-radius: 50%;
+//}
+//
+//.circle {
+//  @include circle(200px, #123);
+//}
+
+//@mixin dotted-line ($dot-size, $dot-space, $dot-color) {
+//  background: radial-gradient($dot-color $dot-size, transparent 0%) center, transparent;
+//  background-size: $dot-space $dot-space;
+//  background-repeat: repeat-x;
+//  background-position: 0px 0px;
+//}
+//
+//.dotted-line {
+//  @include dotted-line(6px, 20px, #C4C4C4);
+//}
+
+
+@mixin reset-scrollbar {
+  scrollbar-width: unset;
+
+  &::-webkit-scrollbar {}
+  &::-webkit-scrollbar-button {}
+  &::-webkit-scrollbar-thumb {}
+  &::-webkit-scrollbar-thumb:hover {}
+  &::-webkit-scrollbar-track {}
+  &::-webkit-scrollbar-track-piece {}
+  &::-webkit-scrollbar-corner {}
+  &::-webkit-resizer {}
+}
+
+@mixin thin-scrollbar {
+  @include reset-scrollbar;
+
+  scrollbar-width: thin;
+  scrollbar-color: $blue $input_border_focus;
+  //scrollbar-width: 7px;
+
+  &::-webkit-scrollbar {
+    width: 7px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: $blue;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    //background-color: rgb(38, 134, 193);
+    background-color: $darkblue;
+  }
+
+  &::-webkit-scrollbar-track {
+    //box-shadow: inset 0 0 0.5rem rgba(0, 0, 0, 0.125);
+    background-color: $input_border_focus;
+    border-radius: 3px;
+    //margin: 3px 4px;
+  }
+
+  //&::-webkit-scrollbar-track-piece {
+  //  background: red;
+  //  margin-right: 10px;
+  //}
+}
+
+@mixin hide-scrollbar {
+  @include reset-scrollbar;
+
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* --- custom range --- */
+@mixin range-thumb ($width, $height, $border-color, $background) {
+  background: $background;
+  border: 3px solid $border-color;
+  border-radius: 50%;
+  box-sizing: border-box;
+  cursor: pointer;
+  height: $height;
+  width: $width;
+}
+
+@mixin range-track ($height, $background, $border-color) {
+  cursor: default;
+  height: $height;
+  transition: all .2s ease;
+  width: 100%;
+
+  background: $background;
+  border-radius: 3px;
+  border: 1px solid $border-color;
+}

@@ -1,0 +1,276 @@
+@use "../mixins";
+@use "../vars";
+@use "sass:color";
+
+body {
+  font-family: "Lato", "Arial", sans-serif;
+  letter-spacing: 0;
+  color: vars.$black;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.page-width {
+  max-width: 1170px;
+  margin: 0 auto;
+  min-width: 320px;
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-width: 320px;
+  width: 100%;
+  height: 100%;
+  background: top center no-repeat url(../src/image.png), vars.$darkgray;
+  //background-size: cover;
+  background-size: 1919px 987px;
+
+  @include mixins.media-down(xl) {
+    background-position: top left;
+    background-size: auto;
+  }
+
+  @include mixins.media-down(sm) {
+    background-size: cover;
+  }
+
+  .header {
+    background-color: vars.$header_background;
+    height: 100px;
+    display: flex;
+    align-items: center;
+
+    &_is-sticky {
+      position: sticky;
+      top: 0;
+      z-index: 60;
+    }
+
+    &__container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &__logo {
+      font-family: "Raleway";
+      font-size: 28px;
+      line-height: 33px;
+      text-transform: uppercase;
+      color: vars.$white;
+      font-weight: 800;
+
+      @include mixins.media-down(sm) {
+        font-size: 24px;
+      }
+
+      &_style2 {
+        color: vars.$blue_head;
+        //font-weight: 800;
+      }
+    }
+  }
+
+  .content {
+    background: vars.$darkgray;
+    background-size: cover;
+    color: vars.$white;
+    padding: 120px 0 150px 0;
+    position: relative;
+
+    &__container {
+      position: relative;
+      z-index: 1;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      opacity: 0.1;
+      background:  center center repeat-y url('../src/image2.png');
+    }
+
+    &__title {
+      font-size: 36px;
+      font-weight: 800;
+      line-height: 43px;
+      text-align: center;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+
+      &_style2 {
+        color: vars.$blue;
+      }
+    }
+
+    &__subtitle {
+      font-size: 18px;
+      line-height: 22px;
+      text-align: center;
+      color: vars.$lightgray;
+    }
+
+    &__icons-wrapper {
+      overflow-x: auto;
+    }
+
+    &__icons-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
+      grid-column-gap: 30px;
+      grid-row-gap: 30px;
+      justify-content: center;
+      align-items: start;
+      margin-top: 80px;
+      position: relative;
+
+      @include mixins.media-down(lg) {
+        grid-column-gap: 20px;
+      }
+
+      @include mixins.media-down(md) {
+        //grid-template-columns: repeat(5, 210px);
+        //overflow-x: auto;
+        width: 1170px;
+        padding-bottom: 15px;
+      }
+
+      .icon-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+
+        &:not(:last-child) {
+          &:before {
+            content: "";
+            position: absolute;
+            top: 47px;
+
+            left: 50%;
+            width: 100%;
+            height: 6px;
+            background: radial-gradient(#C4C4C4 3px, transparent 0%) center, transparent;
+            background-size: 26px 26px;
+            background-repeat: repeat-x;
+            background-position: 0 -10px;
+
+            @include mixins.media-between(md, lg) {
+              top: 37px;
+              background-size: 20px 20px;
+              background-position: 0 -7px;
+            }
+          }
+        }
+
+        &__icon {
+          background: vars.$blue;
+          border: 5px solid vars.$darkblue;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100px;
+          height: 100px;
+          font-size: 33px;
+          color: vars.$white;
+          z-index: 1;
+
+          @include mixins.media-between(md, lg) {
+            width: 80px;
+            height: 80px;
+          }
+
+          //img {
+          //  width: 40px;
+          //}
+
+          //&_bold {
+          //  font-weight: 900;
+          //}
+        }
+
+        &__text {
+          font-size: 16px;
+          line-height: 19px;
+          text-align: center;
+          margin-top: 20px;
+        }
+      }
+    }
+
+    &__form {
+      margin-top: 80px;
+      display: grid;
+      grid-template-areas: "type email name"
+                           "range range file"
+                           ". send .";
+      grid-template-columns: 1fr 1fr 1fr ;
+      grid-column-gap: 40px;
+      grid-row-gap: 30px;
+
+      @include mixins.media-between(sm, md-lg) {
+        grid-template-areas: "type email"
+                             "name file"
+                             "range range "
+                             "send send";
+        grid-template-columns: 1fr 1fr;
+      }
+
+      @include mixins.media-down(sm) {
+        grid-template-areas: "type" "email" "name" "range" "file" "send";
+        grid-template-columns: 1fr;
+      }
+
+      .form-input__type {
+        grid-area: type;
+      }
+      .form-input__email {
+        grid-area: email;
+      }
+      .form-input__name {
+        grid-area: name;
+      }
+      .form-input__range {
+        grid-area: range;
+      }
+      .form-input__file {
+        grid-area: file;
+      }
+      .form-input__send {
+        grid-area: send;
+
+        @include mixins.media-between(sm, md-lg) {
+          width: 50%;
+          justify-self: center;
+        }
+
+        button {
+          text-transform: uppercase;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 14px 10px;
+          width: 100%;
+          font-weight: 600;
+          font-size: 15px;
+          line-height: 18px;
+        }
+      }
+    }
+  }
+}
+
+
+

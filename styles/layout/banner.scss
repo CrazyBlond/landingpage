@@ -1,0 +1,108 @@
+@use "../mixins" as *;
+@use "../vars";
+
+.banner {
+  //height: 750px;
+  height: auto;
+
+  //@include media-down(sm) {
+  //  height: auto;
+  //}
+
+  &__container {
+    margin-top: 103px;
+    margin-bottom: 203px;
+    font-size: 20px;
+    line-height: 24px;
+
+    display: flex;
+    flex-direction: column;
+
+    @include media-down(md) {
+      justify-content: center;
+      align-items: center;
+      margin: 50px 0;
+    }
+  }
+
+  &__head {
+    font-size: 48px;
+    font-weight: 700;
+    //font-weight: 800;
+    line-height: 58px;
+    text-transform: uppercase;
+    margin-bottom: 80px;
+    word-wrap: break-word;
+
+    @include media-down(md) {
+      text-align: center;
+
+      br {
+        display: none;
+      }
+    }
+
+    &_style2 {
+      //font-family: "Raleway";
+      font-weight: 700;
+      line-height: 56px;
+      color: vars.$blue;
+    }
+  }
+
+  &__text {
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  &__list {
+    margin-top: 10px;
+    list-style: none;
+
+    li {
+      padding-bottom: 5px;
+      list-style-position: inside;
+
+      &:before {
+        content:  "-";
+        position: relative;
+        left: -10px;
+        padding-left: 20px;
+      }
+    }
+  }
+
+  &__buttons-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 80px;
+
+    @include media-down(xs) {
+      flex-direction: column;
+      width: 100%;
+      margin-top: 35px;
+
+      button {
+        width: 100%;
+      }
+    }
+
+    button:not(:first-child) {
+      margin-left: 30px;
+
+      @include media-down(xs) {
+        margin-left: 0;
+        margin-top: 10px;
+      }
+    }
+  }
+
+  &__banner-button {
+    //font-family: Lato;
+    font-size: 13px;
+    line-height: 15px;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    padding: 13px 31px;
+  }
+}

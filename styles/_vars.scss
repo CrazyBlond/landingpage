@@ -1,0 +1,40 @@
+$grid-breakpoints: (
+  xs: 350px,
+  sm: 576px,
+  md: 768px,
+  md-lg: 992px,
+  lg: 1024px,
+  xl: 1200px
+);
+
+//$container-max-widths: (
+//  sm: 540px,
+//  md: 720px,
+//  lg: 992px,
+//  xl: 1140px
+//);
+
+$white: rgba(255, 255, 255, 1);
+$gray_range: rgba(255, 255, 255, 0.7);
+$black: rgba(0, 0, 0, 1);
+$blue: rgba(62, 156, 220, 1);
+$darkblue: rgba(40, 102, 144, 1);
+$gray: rgba(111, 109, 123, 1);
+$lightgray: rgba(187, 187, 187, 1);
+$darkgray: rgba(39, 39, 51, 1);
+$blue_head: rgba(66, 169, 237, 1);
+$blue_menu: rgba(66, 169, 237, 1);
+$blue_range: rgba(66, 169, 237, 1);
+$menu_border: rgba(61, 64, 80, 1);
+$footer_background: rgba(61, 64, 80, 1);
+$footer_gray: rgba(195, 195, 195, 1);
+
+$header_background: rgba(16, 16, 29, 0.9);
+$select_hover: #D8093A;
+$input_background_focus: rgba(61, 64, 80, 0.85);
+$input_background: rgba(255, 255, 255, 0.85);
+$input_border_focus: rgba(61, 64, 80, 1);
+$input_border: rgba(255, 255, 255, 1);
+
+$label_gray: rgba(255, 255, 255, 0.85);
+

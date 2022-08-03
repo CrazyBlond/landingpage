@@ -1,0 +1,122 @@
+@use "../vars";
+@use "../mixins" as *;
+@use "sass:color";
+
+.footer {
+  background: vars.$footer_background;
+  color: vars.$white;
+
+  font-size: 13px;
+  line-height: 16px;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 0;
+
+    font-size: 13px;
+    line-height: 16px;
+
+    @include media-down(lg) {
+      flex-direction: column;
+      justify-content: center;
+      gap: 15px;
+      height: auto;
+      padding: 15px 0;
+    }
+  }
+
+  &__group-sections {
+    display: contents;
+
+    @include media-between(md, lg) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    @include media-down(md) {
+      display: contents;
+    }
+  }
+
+  &__section {
+    display: contents;
+
+    @include media-down(md) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__copyright {
+    grid-area: copyright;
+    text-align: center;
+
+    @include media-down(lg) {
+      order: 3;
+    }
+
+    &_uppercase {
+      text-transform: uppercase;
+    }
+  }
+
+  &__item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: 10px;
+    align-items: center;
+
+    &_gray {
+      color: vars.$footer_gray;
+    }
+
+    .icon {
+      width: 20px;
+      height: 20px;
+      color: vars.$blue;
+    }
+
+    @include media-down(md) {
+      &:not(:last-of-type) {
+        margin-right: 30px;
+      }
+    }
+  }
+
+  &__delimiter {
+    height: 18px;
+    width: 0;
+    border-right: 1px solid vars.$footer_gray;
+
+    &_first {
+      @include media-down(lg) {
+        display: none;
+      }
+    }
+
+    &_second {
+      @include media-down(md) {
+        display: none;
+      }
+    }
+  }
+
+  &__link {
+    color: vars.$white;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+      color: color.complement(vars.$blue_menu);
+
+      .icon {
+        color: color.complement(vars.$blue_menu);
+      }
+    }
+  }
+}
