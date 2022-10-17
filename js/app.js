@@ -1,7 +1,7 @@
 "use strict";
 
 $(function () {
-    setTimeout(showModal, 60000);
+    // setTimeout(showModal, 60000);
     function showModal() {
         const modalId = 'myMessageModal';
         const newModal = $(`
